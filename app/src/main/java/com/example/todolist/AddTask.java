@@ -36,7 +36,13 @@ public class AddTask extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
+                
                 String  taskName = mTaskName.getText().toString().trim();
+                if(TextUtils.isEmpty(taskName)){
+                    mTaskName.setError("Task name cannot be empty");
+                    return;
+                }
 
                 MyDataBaseHelper dbh = new MyDataBaseHelper(mContext);
                  long res =   dbh.AddItems(taskName);
